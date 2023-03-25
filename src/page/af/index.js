@@ -3,7 +3,6 @@ import Image from "mui-image";
 import useSWR from 'swr';
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
-import Skeleton from '@mui/material/Skeleton';
 import Stack from '@mui/material/Stack';
 import Toolbar from "@mui/material/Toolbar";
 import Typography from '@mui/material/Typography';
@@ -13,29 +12,8 @@ import URLCard from "../../component/card/url";
 import Footer from "../../common/footer";
 import Navbar from "../../common/navbar";
 
-const Activities = () => {
-    const {data} = useSWR('/af');
-    return (
-        <Grid container spacing={2} sx={{my: 2}}>
-            {data.items.map((i) => {
-                return (
-                    <Grid item xs={12} sm={6} md={4} key={i.id}>
-                        <ActivityCard year={i.year} name={i.name} image={i.image}/>
-                    </Grid>
-                );
-            })}
-        </Grid>
-    )
-};
-const Loading = () => {
-    return (
-        <Stack spacing={1} sx={{my: 2}}>
-            <Skeleton variant="rounded" height={200}/>
-            <Skeleton variant="text"/>
-        </Stack>
-    )
-};
 const AfIndex = () => {
+    const {data} = useSWR('/af');
     return (
         <FallbackPageWrapper>
             <Navbar/>
@@ -45,11 +23,19 @@ const AfIndex = () => {
                 <Container sx={{my: 2}}>
                     <Stack spacing={2}>
                         <Typography variant={"h4"}>历年点兔愚人节活动镜像</Typography>
-                        <Typography>我们只是想构建一个页面，来记录历年的点兔愚人节活动的细节，尽最大努力还原当时的样子！</Typography>
+                        <Typography>该活动于2014年首次举行，但因当时点兔拥有的粉丝较少，目前仅有2015年之后的网页镜像，欢迎有意者提供相关资料！</Typography>
+                        <Typography>历年的愚人节活动对原作的影响重大，例如2015年的Magical Girl Chino，已有众多相关衍生物：香风智乃 魔法少女使Ver. 手办、Kirara Fantasia里的香风智乃的原型。</Typography>
+                        <Typography>因此我想保留下来，供大家查看。</Typography>
                     </Stack>
-                    <React.Suspense fallback={<Loading/>} fallbackMinDurationMs={5000}>
-                        <Activities/>
-                    </React.Suspense>
+                    <Grid container spacing={2} sx={{my: 2}}>
+                        {data.items.map((i) => {
+                            return (
+                                <Grid item xs={12} sm={6} md={4} key={i.id}>
+                                    <ActivityCard year={i.year} name={i.name} image={i.image} id={i.id}/>
+                                </Grid>
+                            );
+                        })}
+                    </Grid>
                     <Stack spacing={2}>
                         <Typography variant={"h5"}>鸣谢</Typography>
                         <Typography>Staticfile CDN提供静态文件加速访问，以解决因国内用户无法使用Google AJAX Library而导致卡在Loading的问题。</Typography>

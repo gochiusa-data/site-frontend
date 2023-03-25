@@ -31,7 +31,7 @@ const Footer = () => {
                             py: big? 0: 2
                         }}>
                             <Link href={"https://www.gochiusa.com/"}>
-                                <img src={"/static/image/logo.svg"} alt={"Gochiusa Logo"} style={{width: 250}}/>
+                                <img src={"https://s1.250king.top/image/www.gochiusa.fun/logo.svg"} alt={"Gochiusa Logo"} style={{width: 250}}/>
                             </Link>
                         </Grid>
                     </Grid>

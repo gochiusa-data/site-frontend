@@ -32,13 +32,14 @@ const Warning = () => {
     );
 }
 const AfDetail = () => {
-    const {year} = useParams();
-    const {data} = useSWR(`/af/${year}`);
+    const {id} = useParams();
+    const {data} = useSWR(`/af/${id}`);
+    const time = new Date(`${data.time}Z`);
     const columns = [
         {field: "name", headerName: "名称",  width: 250},
         {
-            field: "provider", 
-            headerName: "提供方", 
+            field: "provider",
+            headerName: "提供方",
             width: 150,
             renderCell: (item) => {
                 return (
@@ -75,8 +76,8 @@ const AfDetail = () => {
                             <Link underline={"hover"} component={RouterLink} to={`/af/${data.year}`}>{data.name}</Link>
                         </Breadcrumbs>
                         <Typography variant={"h4"}>{data.name}</Typography>
-                        {year >= 2015 && year <= 2017? <Warning/>: null}
-                        <Typography>活动时间：{data.year}年</Typography>
+                        {time.getUTCFullYear <= 2017? <Warning/>: null}
+                        <Typography>活动时间：{Intl.DateTimeFormat(navigator.language, {dateStyle: 'full', timeStyle: 'long'}).format(time)}</Typography>
                         <Typography variant={"h5"}>可用镜像</Typography>
                         <Box sx={{height: 500}}>
                             <DataGrid rows={data.endpoint} columns={columns}/>

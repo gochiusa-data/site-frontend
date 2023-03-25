@@ -9,34 +9,41 @@ import {zhCN} from '@mui/x-data-grid';
 import {zhCN as coreZhCN} from '@mui/material/locale';
 import {FallbackProvider} from "react-current-page-fallback";
 
-const App = () => {
+const MainRoute = () => {
     const AfIndex = React.lazy(() => import("./page/af/index"));
     const AfDetail = React.lazy(() => import("./page/af/detail"));
     const Root = React.lazy(() => import("./page/index"))
-    const isDark = useMediaQuery('(prefers-color-scheme: dark)');
-    const common = createTheme({palette: {mode: isDark? 'dark': 'light'}}, zhCN, coreZhCN);
-    const endpoint = "https://www.gochiusa.fun/api/v1";
 
     return (
-        <BrowserRouter>
-            <SWRConfig value={{
-                suspense: true,
-                revalidateIfStale: false,
-                revalidateOnFocus: false,
-                fetcher: (url, init) => fetch(`${endpoint}${url}`, init).then(r => r.json())
-            }}>
+        <FallbackProvider>
+            <Routes>
+                <Route path={"/"} element={<Root/>}/>
+                <Route path={"/af"} element={<AfIndex/>}/>
+                <Route path={"/af/:id"} element={<AfDetail/>}/>
+            </Routes>
+        </FallbackProvider>
+    )
+}
+
+const App = () => {
+    const isDark = useMediaQuery('(prefers-color-scheme: dark)');
+    const common = createTheme({palette: {mode: isDark? 'dark': 'light'}}, zhCN, coreZhCN);
+    const endpoint = "https://www.gochiusa.fun/api/v2.0";
+
+    return (
+        <SWRConfig value={{
+            suspense: true,
+            revalidateIfStale: false,
+            revalidateOnFocus: false,
+            fetcher: (url, init) => fetch(`${endpoint}${url}`, init).then(r => r.json())
+        }}>
+            <BrowserRouter>
                 <ThemeProvider theme={common}>
                     <CssBaseline/>
-                    <FallbackProvider>
-                        <Routes>
-                            <Route path={"/"} element={<Root/>}/>
-                            <Route path={"/af"} element={<AfIndex/>}/>
-                            <Route path={"/af/:year"} element={<AfDetail/>}/>
-                        </Routes>
-                    </FallbackProvider>
+                    <MainRoute/>
                 </ThemeProvider>
-            </SWRConfig>
-        </BrowserRouter>
+            </BrowserRouter>
+        </SWRConfig>
     )
 }
 

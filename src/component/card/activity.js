@@ -6,14 +6,14 @@ import Typography from "@mui/material/Typography";
 import {Link} from 'react-router-dom';
 
 const ActivityCard = (param) => {
+    const id = param.id;
     const name = param.name;
-    const year = param.year;
     const image = param.image;
     const description = param.description;
 
     return (
         <Card>
-            <CardActionArea component={Link} to={`/af/${year}`}>
+            <CardActionArea component={Link} to={`/af/${id}`}>
                 <CardMedia image={image} title={name} sx={{height: 180}}/>
                 <CardContent>
                     <Typography variant={"h5"} sx={{overflow: "hidden", whiteSpace: "nowrap"}}>{name}</Typography>
