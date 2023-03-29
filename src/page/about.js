@@ -1,15 +1,10 @@
-import {FallbackPageWrapper} from "react-current-page-fallback";
-import Footer from "../../common/footer";
-import Navbar from "../../common/navbar";
+import Typography from "@mui/material/Typography";
+import CommonView from "../components/view/common";
 
-const About = () => {
+export const Component = () => {
     return (
-        <FallbackPageWrapper>
-            <Navbar/>
-            
-            <Footer/>
-        </FallbackPageWrapper>
+        <CommonView title={"关于"}>
+            <Typography variant={"h4"}>关于</Typography>
+        </CommonView>
     )
 };
-
-export default About;

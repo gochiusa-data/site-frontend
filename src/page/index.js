@@ -1,12 +1,7 @@
-import {Navigate} from 'react-router-dom';
-import {FallbackPageWrapper} from "react-current-page-fallback";
+import { Navigate } from "react-router-dom";
 
-const Root = () => {
+export const Component = () => {
     return (
-        <FallbackPageWrapper>
-            <Navigate to={"/af"} replace={true}/>
-        </FallbackPageWrapper>
-    );
-}
-
-export default Root;
+        <Navigate to={"/af"} replace={true} />
+    )
+};
