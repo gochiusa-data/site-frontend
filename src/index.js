@@ -14,10 +14,10 @@ const App = () => {
         {
             lazy: () => import("./components/base/progress"),
             children: [
+                { path: "/", index: true, lazy: () => import("./page/index") },
                 {
                     lazy: () => import("./components/base/navbar"),
                     children: [
-                        { path: "/", index: true, lazy: () => import("./page/index") },
                         { path: "about", lazy: () => import("./page/about") },
                         { path: "af", lazy: () => import("./page/af/index") },
                         { path: "af/:id", lazy: () => import("./page/af/detail") }
