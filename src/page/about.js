@@ -17,8 +17,8 @@ export const Component = () => {
             <ListItems>
                 <UserCard name={"250king"} url={"https://www.250king.top/"} avatar={"https://cravatar.cn/avatar/5b656ea9666a4326d4d9b5e109370cdf?s=128"} description={"主负责人"} />
                 <UserCard name={"gochi_AI"} url={"https://gochiai.web.app/"} avatar={"https://panda995.top:500/img/2023/04/qOEwWX.webp"} description={"提供点兔展活动页面"} />
-                <UserCard name={"Fatcat"} url={"https://gochiai.web.app/"} avatar={"https://pic.fatcattech.cn/imgs/2023/01/ce87029080075e41.png"} description={"提供国内服务器"} />
-                <UserCard name={"fanbao"} url={"https://twitter.com/hsnyuia"} avatar={"https://pic.fatcattech.cn/imgs/2023/01/ce87029080075e41.png"} description={"协助资料翻译"} />
+                <UserCard name={"Fatcat"} url={"https://fatcattech.cn/"} avatar={"https://pic.fatcattech.cn/imgs/2023/01/ce87029080075e41.png"} description={"提供国内服务器"} />
+                <UserCard name={"fanbao"} url={"https://twitter.com/hsnyuia"} avatar={"https://avatars.githubusercontent.com/u/106850534"} description={"协助资料翻译"} />
                 <UserCard name={"香风奇诺"} url={"https://space.bilibili.com/16458408"} avatar={"https://panda995.top:500/img/2023/04/e5c8d1d90bdc5c0352794709bc70d18131668f9b.webp"} description={"协助资料翻译"} />
             </ListItems>
             <Stack spacing={2}>
