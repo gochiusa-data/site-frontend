@@ -57,7 +57,7 @@ export const Component = () => {
                         {
                             list.map((item, index) => {
                                 return (
-                                    <ListItem disablePadding>
+                                    <ListItem disablePadding key={index}>
                                         <ListItemButton component={Link} to={item.path} onClick={() => {
                                             setOpen(!open);
                                         }}>
