@@ -20,7 +20,8 @@ const App = () => {
                     children: [
                         { path: "about", lazy: () => import("./page/about") },
                         { path: "af", lazy: () => import("./page/af/index") },
-                        { path: "af/:id", lazy: () => import("./page/af/detail") }
+                        { path: "af/:id", lazy: () => import("./page/af/detail") },
+                        { path: "ge", lazy: () => import("./page/ge/index") }
                     ]
                 },
                 {

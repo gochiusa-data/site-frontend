@@ -3,7 +3,14 @@ import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { useNavigation, Outlet } from "react-router-dom";
 
 export const Component = () => {
-    const custom = createTheme({ palette: { primary: { main: "#fae2a4" } } });
+    const custom = createTheme({
+        palette: {
+            mode: 'dark',
+            primary: {
+                main: "#ffd578"
+            }
+        }
+    });
     const navigation = useNavigation();
     return (
         <>
