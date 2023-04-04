@@ -21,7 +21,8 @@ const App = () => {
                         { path: "about", lazy: () => import("./page/about") },
                         { path: "af", lazy: () => import("./page/af/index") },
                         { path: "af/:id", lazy: () => import("./page/af/detail") },
-                        { path: "ge", lazy: () => import("./page/ge/index") }
+                        { path: "ge", lazy: () => import("./page/ge/index") },
+                        { path: "ge/:id", lazy: () => import("./page/ge/detail") }
                     ]
                 },
                 {

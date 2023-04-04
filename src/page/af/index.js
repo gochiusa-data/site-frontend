@@ -23,7 +23,7 @@ export const Component = () => {
             <ListItems>
                 {data.items.map((item, index) => {
                     return (
-                        <ActivityCard year={item.year} name={item.name} image={item.image} id={item.id} key={index} />
+                        <ActivityCard year={item.year} name={item.name} image={item.image} url={`/af/${item.id}`} key={index} />
                     );
                 })}
             </ListItems>
